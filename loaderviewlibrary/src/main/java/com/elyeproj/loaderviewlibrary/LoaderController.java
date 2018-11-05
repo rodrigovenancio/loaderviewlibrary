@@ -38,7 +38,7 @@ class LoaderController implements ValueAnimator.AnimatorUpdateListener {
     private int corners = LoaderConstant.CORNER_DEFAULT;
 
     private final static int MAX_COLOR_CONSTANT_VALUE = 255;
-    private final static int ANIMATION_CYCLE_DURATION = 750; //milis
+    private final static int ANIMATION_CYCLE_DURATION = 250; //milis
 
     public LoaderController(LoaderView view) {
         loaderView = view;

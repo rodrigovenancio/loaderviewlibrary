@@ -39,7 +39,7 @@ class LoaderController implements ValueAnimator.AnimatorUpdateListener {
 
     private final static int MAX_COLOR_CONSTANT_VALUE = 255;
     private final static int ANIMATION_CYCLE_DURATION = 750; //milis
-    private final static int ANIMATION_STOP_DURATION = 200;
+    private final static int ANIMATION_STOP_DURATION = 50;
 
     public LoaderController(LoaderView view) {
         loaderView = view;
@@ -118,7 +118,7 @@ class LoaderController implements ValueAnimator.AnimatorUpdateListener {
     public void stopLoading() {
         if (valueAnimator != null) {
             valueAnimator.cancel();
-            setValueAnimator(0.3f, 0, 0);
+            setValueAnimator(progress, 0, 0);
             valueAnimator.start();
         }
     }

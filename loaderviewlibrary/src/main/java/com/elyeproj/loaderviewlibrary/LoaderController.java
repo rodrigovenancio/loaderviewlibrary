@@ -118,7 +118,7 @@ class LoaderController implements ValueAnimator.AnimatorUpdateListener {
     public void stopLoading() {
         if (valueAnimator != null) {
             valueAnimator.cancel();
-            setValueAnimator(progress, 0, 0);
+            setValueAnimator(0.3f, 0, 0);
             valueAnimator.start();
         }
     }

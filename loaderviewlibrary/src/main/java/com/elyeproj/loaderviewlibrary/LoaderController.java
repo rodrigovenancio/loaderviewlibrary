@@ -38,7 +38,8 @@ class LoaderController implements ValueAnimator.AnimatorUpdateListener {
     private int corners = LoaderConstant.CORNER_DEFAULT;
 
     private final static int MAX_COLOR_CONSTANT_VALUE = 255;
-    private final static int ANIMATION_CYCLE_DURATION = 250; //milis
+    private final static int ANIMATION_CYCLE_DURATION = 750; //milis
+    private final static int ANIMATION_STOP_DURATION = 250;
 
     public LoaderController(LoaderView view) {
         loaderView = view;
@@ -125,7 +126,10 @@ class LoaderController implements ValueAnimator.AnimatorUpdateListener {
     private void setValueAnimator(float begin, float end, int repeatCount) {
         valueAnimator = ValueAnimator.ofFloat(begin, end);
         valueAnimator.setRepeatCount(repeatCount);
-        valueAnimator.setDuration(ANIMATION_CYCLE_DURATION);
+        if (repeatCount == 0)
+            valueAnimator.setDuration(ANIMATION_STOP_DURATION);
+        else
+            valueAnimator.setDuration(ANIMATION_CYCLE_DURATION);
         valueAnimator.setRepeatMode(ValueAnimator.REVERSE);
         valueAnimator.setInterpolator(new LinearInterpolator());
         valueAnimator.addUpdateListener(this);
